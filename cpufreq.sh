@@ -1,5 +1,13 @@
 #!/bin/bash
 
+help="Usage: cpufreq.sh \ncpufreq.sh status - Show current status\n"
+
+# Print help message if asked for
+if [[ $1 = "-h" || $1 = "--help" ]]; then
+	printf "${help}"
+	exit
+fi
+
 if [[ $(id -u) -ne 0 ]] ; then
 	echo "Please run as root";
 	exit 1;
